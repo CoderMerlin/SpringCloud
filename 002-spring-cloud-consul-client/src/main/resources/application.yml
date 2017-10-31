@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: consul-client  #应用名称
+  cloud:
+    consul:
+      host: localhost  #设置consul 的host
+      port: 8500       #consul 默认端口为8500
+    
+server: 
+  port: 7771 #设置端口号
+  
