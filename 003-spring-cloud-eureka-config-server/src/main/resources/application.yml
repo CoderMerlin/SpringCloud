@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: eureka-config-server  #应用名称
+  profiles:
+    active: subversion  #跟git版本有区别，需要显示声明subversion
+  cloud:
+    config:
+      enabled: true
+      server:
+        svn:
+          default-label:  trunk  #默认的分支，这里是svn仓库的一个目录
+          uri: https://192.168.23.1/svn/repo/config-repo/   #此处为svn的配置文件地址
+         # username: 
+         # password:  如果有用户和密码则需要配置，我这里svn server并没有配置用户限制
+          search-paths: #svn才有
+            trunk/config,test   #不同的文件夹可以用,号隔开
+        
+server: 
+  port: 8881 #设置端口号
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6661/eureka/  #注册到eureka 中心去
+
