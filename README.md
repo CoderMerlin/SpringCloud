@@ -64,4 +64,12 @@ nginx
 --http-fastcgi-temp-path=/var/temp/nginx/fastcgi \
 --http-uwsgi-temp-path=/var/temp/nginx/uwsgi \
 --http-scgi-temp-path=/var/temp/nginx/scgi
+#!/bin/bash
+REPOS="$1"
+REV="$2"
 
+LANG=zh_CN.UTF-8
+export LANG
+HOOK_DIR=/home/svn/project1/hooks
+PYTHON_BIN=/usr/bin/python2.7
+${PYTHON_BIN} ${HOOK_DIR}/postcommit.py ${REPOS}  ${REV
