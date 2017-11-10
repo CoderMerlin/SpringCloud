@@ -68,8 +68,14 @@ nginx
 REPOS="$1"
 REV="$2"
 
-LANG=zh_CN.UTF-8
-export LANG
-HOOK_DIR=/home/svn/project1/hooks
-PYTHON_BIN=/usr/bin/python2.7
-${PYTHON_BIN} ${HOOK_DIR}/postcommit.py ${REPOS}  ${REV
+#! /user/bin/ python
+import urllib
+import urllib2
+test_data = {}
+test_data_urlencode = urllib.urlencode(test_data)
+requrl = "http://192.168.23.160:8041/bus/refresh"
+req = urllib2.Request(url = requrl,data = test_data_urlencode)
+print req
+res_data = urllib2.urlopen(req)
+res = res_data.read()
+print res
